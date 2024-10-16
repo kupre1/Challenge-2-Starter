@@ -1,27 +1,29 @@
-import { useState } from 'react';
+import { useState } from "react";
 
-import { close, logo, menu } from '../assets';
+import { close, logo, menu } from "../assets";
 
-import { navLinks } from '../constants';
+import { navLinks } from "../constants";
 
 const Navbar = () => {
-  const [active, setActive] = useState('Home');
+  const [active, setActive] = useState("Home");
   const [toggle, setToggle] = useState(false);
 
   return (
     <nav className="flex items-center justify-between w-full py-6">
       <img src={logo} alt="hoobank" className="h-[32px] w-[124px]" />
 
-      <ul className="items-center justify-end flex-1 hidden list-none sm:flex gap-10">
+      <ul className="items-center justify-end flex-1 hidden list-none sm:flex gap-10 ">
         {navLinks.map((nav, index) => (
           <li
             key={nav.id}
-            className={`cursor-pointer font-poppins text-[16px] font-normal ${
-              active === nav.title ? 'text-white' : 'text-dimWhite'
+            className={`cursor-pointer font-poppins text-[16px] font-normal  ${
+              active === nav.title ? "text-white" : "text-dimWhite"
             }`}
             onClick={() => setActive(nav.title)}
           >
-            <a href={`#${nav.id}`}>{nav.title}</a>
+            <a className="text-white" href={`#${nav.id}`}>
+              {nav.title}{" "}
+            </a>
           </li>
         ))}
       </ul>
@@ -36,7 +38,7 @@ const Navbar = () => {
 
         <div
           className={`${
-            !toggle ? 'hidden' : 'flex'
+            !toggle ? "hidden" : "flex"
           } absolute right-0 top-20 mx-4 my-2 min-w-[140px] rounded-xl bg-black p-6`}
         >
           <ul className="flex flex-col items-start justify-end flex-1 list-none gap-10">
@@ -44,7 +46,7 @@ const Navbar = () => {
               <li
                 key={nav.id}
                 className={`cursor-pointer font-poppins text-[16px] font-medium ${
-                  active === nav.title ? 'text-white' : 'text-dimWhite'
+                  active === nav.title ? "text-white" : "text-dimWhite"
                 } `}
                 onClick={() => setActive(nav.title)}
               >
